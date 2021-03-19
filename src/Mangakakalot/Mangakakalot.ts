@@ -43,7 +43,7 @@ const headers = {
 }
 
 export const MangakakalotInfo: SourceInfo = {
-  version: '2.0.0',
+  version: '2.0.1',
   name: 'Mangakakalot',
   icon: 'mangakakalot.com.png',
   author: 'getBoolean',
@@ -53,8 +53,8 @@ export const MangakakalotInfo: SourceInfo = {
   websiteBaseURL: MK_DOMAIN,
   sourceTags: [
     {
-      text: "English",
-      type: TagType.GREY
+      text: "Notifications",
+      type: TagType.GREEN
     }
   ]
 }
