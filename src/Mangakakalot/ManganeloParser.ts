@@ -91,9 +91,9 @@ export const parseManganeloChapters = ($: CheerioStatic, mangaId: string): Chapt
   const allChapters = $('.row-content-chapter', '.body-site')
   const chapters: Chapter[] = []
   for (let chapter of $('li', allChapters).toArray()) {
-    const id: string = $('a', chapter).attr('href')?.split('/').pop() ?? ''
+    const id: string = $('a', chapter).attr('href') ?? ''
     const name: string = $('a', chapter).text() ?? ''
-    const chapNum: number = Number(/Chapter ([0-9]\d*(\.\d+)?)/g.exec(name)?.[1] ?? '')
+    const chapNum: number = Number((/Chapter (\d*)/g.exec(name) ?? [])[1] ?? '')
     const time: Date = new Date($('.chapter-time', chapter).attr('title') ?? '')
     chapters.push(createChapter({
       id,
