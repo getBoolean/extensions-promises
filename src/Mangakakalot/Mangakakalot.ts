@@ -43,7 +43,7 @@ const headers = {
 }
 
 export const MangakakalotInfo: SourceInfo = {
-  version: '1.2.10',
+  version: '2.0.0',
   name: 'Mangakakalot',
   icon: 'mangakakalot.com.png',
   author: 'getBoolean',
