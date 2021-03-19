@@ -38,11 +38,12 @@ const MK_DOMAIN = 'https://mangakakalot.com'
 const MN_DOMAIN = 'https://manganelo.com'
 const method = 'GET'
 const headers = {
+  "Referer": MN_DOMAIN,
   "content-type": "application/x-www-form-urlencoded"
 }
 
 export const MangakakalotInfo: SourceInfo = {
-  version: '1.2.8',
+  version: '1.2.9',
   name: 'Mangakakalot',
   icon: 'mangakakalot.com.png',
   author: 'getBoolean',
@@ -110,7 +111,7 @@ export class Mangakakalot extends Source {
         url: `${chapterId}`,
         method,
         headers: {
-          'referer': MN_DOMAIN,
+          'Referer': MN_DOMAIN,
           "content-type": "application/x-www-form-urlencoded",
           Cookie: 'content_lazyload=off'
         },
@@ -121,7 +122,6 @@ export class Mangakakalot extends Source {
         url: `${chapterId}`,
         method,
         headers: {
-          'referer': MK_DOMAIN,
           "content-type": "application/x-www-form-urlencoded",
           Cookie: 'content_lazyload=off'
         },
@@ -263,7 +263,7 @@ export class Mangakakalot extends Source {
 
   globalRequestHeaders(): RequestHeaders {
     return {
-      referer: MK_DOMAIN
+      referer: MN_DOMAIN
     }
   }
 }
