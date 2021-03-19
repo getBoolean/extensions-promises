@@ -8,7 +8,7 @@ import {
   TagSection,
   PagedResults,
   SourceInfo,
-  /*MangaUpdates,*/
+  MangaUpdates,
   RequestHeaders,
   TagType
 } from "paperback-extensions-common"
@@ -141,10 +141,12 @@ export class Mangakakalot extends Source {
     }
   }
 
-  // Removed: Mangakakalot does not show the updated date on their latest updates page
-  // async filterUpdatedManga(mangaUpdatesFoundCallback: (updates: MangaUpdates) => void, time: Date, ids: string[]): Promise<void> {
-    
-  // }
+  // Mangakakalot does not show the updated date on their latest updates page, so return all ids
+  async filterUpdatedManga(mangaUpdatesFoundCallback: (updates: MangaUpdates) => void, time: Date, ids: string[]): Promise<void> {
+    mangaUpdatesFoundCallback(createMangaUpdates({
+      ids: ids
+    }))
+  }
 
   async getHomePageSections(sectionCallback: (section: HomeSection) => void): Promise<void> {
     // Give Paperback a skeleton of what these home sections should look like to pre-render them
